@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hwak.mapper.AcaMapper">
+	
+<!-- 학원 전체 목록 -->
+<select id="acaPage" resultType="com.hwak.model.AcademyVO">
+	select ano,aname,atype,aarea,aimage
+		from (
+		select @rownum:=@rownum+1 as rownum, ano,aname,atype,aarea,aimage
+		from (select @rownum:=0) as rownum
+		,academys
+		<if test="keyword!=null">
+		where aname like concat ('%',#{keyword},'%')
+		</if>
+		order by ano desc
+		) academys
+	<![CDATA[
+	where rownum > (#{pageNum}-1) * #{amount} and rownum <= #{pageNum} * #{amount}
+	]]>
+</select>
+
+<!-- 학원 전체 갯수 -->
+<select id="acaCount" resultType="int">
+	select count(*) from academys
+	<if test="keyword != null">
+	where aname like concat ('%',#{keyword},'%')
+	</if>
+</select>
+
+<!-- 학원 상세내용 -->
+<select id="acaDetail" resultType="com.hwak.model.AcademyVO">
+	select * from academys where ano = #{ano}
+</select>
+
+
+
+
+
+
+
+
+</mapper>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hwak.mapper.BoardMapper">
+<!-- 행사 등록 -->
+<insert id="boardWrite">
+		insert into boards (esubject,etype,edate,econtent,estyle,eaddress)
+		values (#{esubject},#{etype},#{edate},#{econtent},#{estyle},#{eaddress}
+
+		)
+
+</insert>
+
+<!-- event 전체 목록 (페이징) -->
+<select id="boardEventPage" resultType="com.hwak.model.BoardVO">
+	select boards.*, rownum
+		from (
+			select @rownum:=@rownum+1 as rownum,b.eno, b.esubject, b.etype, b.edate, b.ecnt, a.filename as fn
+		    from (select @rownum:=0) as rownum
+				,boards
+				as b
+            	left join boards_attach as a 
+            	on a.eno=b.eno 
+			<if test="keyword!=null">
+		    where esubject like concat ('%' ,#{keyword}, '%')
+		    </if>
+		    group by eno 
+		    order by eno desc
+	) boards
+	<![CDATA[
+	where rownum > (#{pageNum}-1) * #{amount} and rownum <= #{pageNum} * #{amount}
+	]]>
+</select>
+
+<!-- boards 테이블 전체 갯수 -->
+<select id="boardCount" resultType="int">
+	select count(*) from boards
+	<if test="keyword != null">
+		where esubject like concat('%',#{keyword},'%')
+	</if>
+</select>
+
+<!-- 행사 상세내용 -->
+<select id="boardDetail" resultType="com.hwak.model.BoardVO">
+<![CDATA[
+	select * from boards where eno = #{eno}
+]]>
+
+</select>
+
+<!-- 행사 수정 -->
+<update id="boardModify">
+update boards
+	set esubject = #{esubject},
+	econtent = #{econtent},
+	edate = #{edate},
+	estyle = #{estyle},
+	etype = #{etype},
+	eaddress = #{eaddress}
+	where eno = #{eno}
+</update>
+
+<!-- 행사 삭제 -->
+<delete id="boardDelete">
+	delete from boards
+	where eno = #{eno}
+</delete>
+
+<!-- 포스터 등록 -->
+<insert id="addAttach">
+		insert into boards_attach(filename,eno) values (#{filename}, LAST_INSERT_ID())
+</insert>
+	
+	
+	<!-- 상세보기 첨부파일가져오기  -->
+	<select id="getAttach" resultType="String">
+		select filename from boards_attach where eno=#{eno}
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

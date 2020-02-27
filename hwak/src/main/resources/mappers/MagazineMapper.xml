@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hwak.mapper.MagazineMapper">
+
+<!-- 매거진 전체 목록(페이징) -->
+<select id="magazinePage" resultType="com.hwak.model.MagazineVO">
+	select mno,mtitle,msubtitle,mtype,mregdate,mwriter
+	from (
+		select @rownum:=@rownum+1 as rownum, mno,mtitle,msubtitle,mtype,mregdate,mwriter
+		from (select @rownum:=0) as rownum 
+			, magazines
+		<if test="keyword!=null">
+		where mtitle like concat ('%',#{keyword},'%')
+		</if>
+		order by mno desc
+	) magazines
+	<![CDATA[
+	where rownum > (#{pageNum}-1) * #{amount} and rownum <= #{pageNum} * #{amount}
+	]]>
+
+</select>
+
+<!-- magazines테이블의 전체 갯수 -->
+<select id="magazineCount" resultType="int">
+	select count(*) from magazines
+	<if test="keyword != null">
+	where mtitle like concat ('%',#{keyword},'%')
+	</if>
+
+</select>
+
+<!-- 매거진 상세내용 -->
+<select id="magaDetail" resultType="com.hwak.model.MagazineVO">
+	select * from magazines where mno = #{mno}
+</select>
+
+
+
+
+
+
+</mapper>
