@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.hwak.model.AcademyVO;
 import com.hwak.model.Criteria;
 import com.hwak.model.PageVO;
 import com.hwak.service.AcaService;
@@ -41,5 +42,39 @@ public class AcaController {
 		model.addAttribute("detail", aservice.acaDetail(ano));
 		logger.info("acadetail  :"+aservice.acaDetail(ano));
 		return "aca/acadetail";
+	}
+	/*학원 등록*/
+	@RequestMapping(value="/aregister", method=RequestMethod.GET)
+	public String aregistGet() throws Exception {
+		logger.info("acawrite Get ...");
+		return "aca/acawrite";
+	}
+	/*학원 등록 처리*/
+	@RequestMapping(value="/aregister", method=RequestMethod.POST)
+	public String aregistPost(AcademyVO aca) throws Exception {
+		logger.info("academy regist post : "+aca);
+		aservice.acaWrite(aca);
+		return "redirect:academy";
+	}
+	/*학원 수정*/
+	@RequestMapping(value="/acamodify", method=RequestMethod.GET)
+	public String acamodifyGet(@RequestParam int ano, Model model)throws Exception {
+		logger.info("acamodify Get ...");
+		model.addAttribute("acamodify",aservice.acaDetail(ano));
+		return "aca/acamodify";
+	}
+	/*학원 수정 처리*/
+	@RequestMapping(value="/acamodify", method=RequestMethod.POST)
+	public String acamodify(AcademyVO aca) throws Exception{
+		logger.info("acamodify post...");
+		aservice.acaModify(aca);
+		return "redirect:acadetail?ano="+aca.getAno();
+	}
+	/*학원 삭제*/
+	@RequestMapping(value="/acadelete", method=RequestMethod.GET)
+	public String acaDelete(AcademyVO aca) throws Exception {
+		logger.info("학원 번호 : "+aca.getAno());
+		aservice.acaDelelte(aca);
+		return "redirect:academy";
 	}
 }

@@ -19,7 +19,7 @@
 </head>
 <body>
 <c:import url="/include/header"></c:import>
-<form action="/magazine" method="get">
+<form action="mregister" method="get">
 
 <div class="middle">
 <!-- Page Content -->

@@ -12,4 +12,10 @@ public interface AcaService {
 	public int acaCount(Criteria cri) throws Exception;
 	// 학원 상세내용
 	public AcademyVO acaDetail(int ano) throws Exception;
+	// 학원 등록
+	public void acaWrite(AcademyVO aca) throws Exception;
+	// 학원 수정
+	public void acaModify(AcademyVO aca) throws Exception;
+	// 학원 삭제
+	public void acaDelelte(AcademyVO aca) throws Exception;
 }

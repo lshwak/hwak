@@ -19,7 +19,7 @@
 </head>
 <body>
 <c:import url="/include/header"></c:import>
-<form action="acadetail" method="get">
+<form id="acaForm" method="get">
 
 <div class="middle">
 <!-- Page Content -->
@@ -30,12 +30,22 @@
    	<div class="input-group">
     	<input type="hidden" name="pageNum" value="${page.cri.getPageNum()}">
     	<input type="hidden" name="amount" value="${page.cri.getAmount()}">
-    	
+    	<input type="hidden" name="ano" value="${detail.ano}">
     	<input type="text" name="keyword" class="search" aria-label="Search" aria-describedby="basic-addon2">
     	<div class="input-group-append">
     		<input type="submit" value="검색" class="btn-primary">
     	</div>
     </div>
+    </div>
+    <div class="modclass">	
+    	<div class="modify-area">
+    		<input type="submit" value="수정" id="modi">
+    	</div>
+    </div>
+    <div class="delclass">	
+    	<div class="modify-area">
+    		<input type="submit" value="삭제" id="del">
+    	</div>
     </div>
    </div>
 <h1>${detail.aname}</h1>

@@ -25,7 +25,7 @@
 	</beans:bean>
 	
 	<beans:bean id="uploadPath" class="java.lang.String">
-		<beans:constructor-arg value="D:\\upload"></beans:constructor-arg>
+		<beans:constructor-arg value="C:\\upload"></beans:constructor-arg>
 	</beans:bean>
 	
 	<beans:bean id="loginInterceptor" class="com.hwak.interceptor.LoginInterceptor"></beans:bean>

@@ -83,7 +83,7 @@ public class UploadController {
 	@RequestMapping(value="/displayFile", method=RequestMethod.GET)
 	public ResponseEntity<byte[]> getFile(String fileName) throws Exception {
 		logger.info("FILE NAME : "+fileName);
-		File file = new File("d:\\upload\\"+fileName);
+		File file = new File("c:\\upload\\"+fileName);
 		logger.info("FILE : "+file);
 		InputStream in = null;
 		ResponseEntity<byte[]> entity = null;

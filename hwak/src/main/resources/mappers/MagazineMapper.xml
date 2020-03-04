@@ -37,6 +37,27 @@
 	select * from magazines where mno = #{mno}
 </select>
 
+<!-- 매거진 등록 -->
+<insert id="mgWrite">
+	insert into magazines (mtitle,msubtitle,mcontent)
+	values (#{mtitle},#{msubtitle},#{mcontent}
+	)
+</insert>
+
+<!-- 매거진 수정 -->
+<update id="mgModify">
+	update magazines
+set mtitle = #{mtitle},
+msubtitle = #{msubtitle},
+mcontent = #{mcontent}
+where mno = #{mno}
+</update>
+
+<!-- 행사 삭제 -->
+<delete id="mgDelete">
+delete from magazines
+where mno= #{mno}
+</delete>
 
 
 

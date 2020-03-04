@@ -78,6 +78,13 @@ public class BoardController {
 	public String modifyGet(@RequestParam int eno,Model model) throws Exception {
 		logger.info("modify get ... "+eno);
 		model.addAttribute("modify", bservice.boardDetail(eno));
+		
+		// 저장된 포스터 가져오기.
+		List getAttachList = new ArrayList();
+		getAttachList = bservice.getAttach(eno);
+		logger.info("getAttachList="+getAttachList);
+		model.addAttribute("getAttachList",getAttachList);
+		
 		return "board/modify";
 	}
 	/*행사수정 처리*/

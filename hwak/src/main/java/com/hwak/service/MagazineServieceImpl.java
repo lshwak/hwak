@@ -30,5 +30,22 @@ public class MagazineServieceImpl implements MagazineService {
 	public MagazineVO magaDetail(int mno) throws Exception {
 		return mgm.magaDetail(mno);
 	}
+	//매거진 등록
+	@Override
+	public void mWrite(MagazineVO maga) throws Exception {
+		mgm.mWrite(maga);
+		
+	}
+	// 매거진 수정
+	@Override
+	public void mModify(MagazineVO maga) throws Exception {
+		mgm.mModify(maga);
+		
+	}
+	// 매거진 삭제
+	@Override
+	public void mDelete(MagazineVO maga) throws Exception {
+		mgm.mDelete(maga);
+	}
 	
 }

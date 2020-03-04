@@ -33,5 +33,20 @@ public class MagazineMapperImpl implements MagazineMapper {
 		MagazineVO magavo = sqlSession.selectOne(namespace+".magaDetail",mno);
 		return magavo;
 	}
+	// 매거진 등록
+	@Override
+	public void mWrite(MagazineVO maga) throws Exception {
+		sqlSession.insert(namespace+".mgWrite",maga);
+	}
+	// 매거진 수정
+	@Override
+	public void mModify(MagazineVO maga) throws Exception {
+		sqlSession.update(namespace+".mgModify",maga);		
+	}
+	// 매거진 삭제
+	@Override
+	public void mDelete(MagazineVO maga) throws Exception {
+		sqlSession.update(namespace+".mgDelete",maga);
+	}
 	
 }

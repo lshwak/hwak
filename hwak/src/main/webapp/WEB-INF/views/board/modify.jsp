@@ -35,7 +35,13 @@
 	  	<tr class="line">
 	  		<td>포스터</td>
 	  		<td>
-	  			<input type="file" name="eimage">
+	  			<div>
+	  				<input type="file" name="filename">
+	  			</div>
+	  			<c:forEach items="${getAttachList}" var="gal">
+			  		<img src="displayFile?fileName=${gal}"/>
+			  		<br>
+			  	</c:forEach>
 	  		</td>
 	  	</tr>
 	  	<tr class="line">

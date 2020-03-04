@@ -13,13 +13,13 @@
 <!-- Custom styles for this template -->
 <link href="resources/css/modern-business.css" rel="stylesheet">
 <script type="text/javascript" src="resources/plugins/jQuery/jquery-3.4.1.js"></script>
-<script src="resources/js/magazine.js"></script>
-<link href="resources/css/magazine.css" rel="stylesheet">
+<script src="resources/js/magadetail.js"></script>
+<link href="resources/css/magadetail.css" rel="stylesheet">
 <title>DanceMoa Magazine</title>
 </head>
 <body>
 <c:import url="/include/header"></c:import>
-<form action="magadetail" method="get">
+<form id="magaForm" method="get">
 
 <div class="middle">
 <!-- Page Content -->
@@ -30,12 +30,22 @@
    	<div class="input-group">
     	<input type="hidden" name="pageNum" value="${page.cri.getPageNum()}">
     	<input type="hidden" name="amount" value="${page.cri.getAmount()}">
-    	
+    	<input type="hidden" name="mno" value="${detail.mno}">
     	<input type="text" name="keyword" class="search" aria-label="Search" aria-describedby="basic-addon2">
     	<div class="input-group-append">
     		<input type="submit" value="검색" class="btn-primary">
     	</div>
     </div>
+    </div>
+    <div class="modclass">	
+    	<div class="modify-area">
+    		<input type="submit" value="수정" id="modi">
+    	</div>
+    </div>
+    <div class="delclass">	
+    	<div class="modify-area">
+    		<input type="submit" value="삭제" id="del">
+    	</div>
     </div>
    </div>
 <h1>${detail.mtitle}</h1>

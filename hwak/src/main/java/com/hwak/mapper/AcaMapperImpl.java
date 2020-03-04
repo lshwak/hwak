@@ -32,5 +32,19 @@ public class AcaMapperImpl implements AcaMapper {
 		AcademyVO acavo = sqlSession.selectOne(namespace+".acaDetail",ano);
 		return acavo;
 	}
-	
+	// 학원 등록
+	@Override
+	public void acaWrite(AcademyVO aca) throws Exception {
+		sqlSession.insert(namespace+".acaWrite",aca);
+	}
+	// 학원 수정
+	@Override
+	public void acaModify(AcademyVO aca) throws Exception {
+		sqlSession.update(namespace+".acaModify",aca);
+	}
+	// 학원 삭제
+	@Override
+	public void acaDelete(AcademyVO aca) throws Exception {
+		sqlSession.update(namespace+".acaDelete",aca);
+	}
 }

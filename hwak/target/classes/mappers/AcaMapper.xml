@@ -34,7 +34,28 @@
 	select * from academys where ano = #{ano}
 </select>
 
+<!-- 학원 등록 -->
+<insert id="acaWrite">
+insert into academys (aname,atype,amaster,aarea,acontent)
+values(#{aname},#{atype},#{amaster},#{aarea},#{acontent})
+</insert>
 
+<!-- 학원 수정 -->
+<update id="acaModify">
+update academys
+set aname = #{aname},
+	atype = #{atype},
+	amaster = #{amaster},
+	aarea = #{aarea},
+	acontent = #{acontent}
+	where ano = #{ano}
+</update>
+
+<!-- 학원 삭제 -->
+<delete id="acaDelete">
+delete from academys
+where ano = #{ano}
+</delete>
 
 
 

@@ -29,4 +29,19 @@ public class AcaServiceImpl implements AcaService {
 	public AcademyVO acaDetail(int ano) throws Exception {
 		return am.acaDetail(ano);
 	}
+	// 학원 등록
+	@Override
+	public void acaWrite(AcademyVO aca) throws Exception {
+		am.acaWrite(aca);
+	}
+	// 학원 수정
+	@Override
+	public void acaModify(AcademyVO aca) throws Exception {
+		am.acaModify(aca);
+	}
+	@Override
+	public void acaDelelte(AcademyVO aca) throws Exception {
+		am.acaDelete(aca);
+	}
+	
 }

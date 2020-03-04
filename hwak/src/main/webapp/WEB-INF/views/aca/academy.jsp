@@ -19,7 +19,7 @@
 </head>
 <body>
 <c:import url="/include/header"></c:import>
-<form action="/academy" method="get">
+<form action="aregister" method="get">
 <div class="middle">
 <!-- Page Content -->
   <div class="container">
