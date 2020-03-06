@@ -17,7 +17,7 @@ public class UploadFileUtils {
 									byte[] fileData) throws Exception {
 		UUID uid=UUID.randomUUID();
 		String savedName=uid.toString()+"_"+originalName;
-		// uploadPath : D:\\upload
+		// uploadPath : C:\\upload
 		String savedPath=calcPath(uploadPath);
 		File target = new File(uploadPath +savedPath,savedName);
 		// FileCopyUtils.copy(in, out);

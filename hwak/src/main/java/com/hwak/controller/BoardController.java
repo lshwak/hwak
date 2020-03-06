@@ -89,9 +89,11 @@ public class BoardController {
 	}
 	/*행사수정 처리*/
 	@RequestMapping(value="/modify", method=RequestMethod.POST)
-	public String modifyPost(BoardVO board) throws Exception {
+	public String modifyPost(@RequestParam int eno,BoardVO board) throws Exception {
 		logger.info("modify post"+board);
 		bservice.boardModify(board);
+		logger.info("파일첨부 ... "+board.getFilename());
+		
 		return "redirect:detail?eno="+board.getEno();
 	}
 	/*행사 삭제*/

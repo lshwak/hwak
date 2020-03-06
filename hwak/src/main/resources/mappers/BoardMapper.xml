@@ -74,12 +74,13 @@ update boards
 </insert>
 	
 	
-	<!-- 상세보기 첨부파일가져오기  -->
-	<select id="getAttach" resultType="String">
-		select filename from boards_attach where eno=#{eno}
-	</select>
-	
-	
+<!-- 상세보기 첨부파일가져오기  -->
+<select id="getAttach" resultType="String">
+	select filename from boards_attach where eno=#{eno}
+</select>
+
+<!-- 포스터 수정 -->
+
 	
 	
 	

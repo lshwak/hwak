@@ -14,7 +14,7 @@
 <!-- Custom styles for this template -->
 <link href="resources/css/modern-business.css" rel="stylesheet">
 <script type="text/javascript" src="resources/plugins/jQuery/jquery-3.4.1.js"></script>
-<script src="resources/js/modify.js"></script>
+
 <link href="resources/css/modify.css" rel="stylesheet">
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <title>DanceMoa Event Modify</title>
@@ -35,11 +35,13 @@
 	  	<tr class="line">
 	  		<td>포스터</td>
 	  		<td>
-	  			<div>
-	  				<input type="file" name="filename">
-	  			</div>
+	  				<input type="file" id="file" name="filename">
+	  				<div id="uploadedList"></div>
 	  			<c:forEach items="${getAttachList}" var="gal">
-			  		<img src="displayFile?fileName=${gal}"/>
+			  		<div class="imgdelete" >
+			  		<img id="dbimg" src="displayFile?fileName=${gal}"/>
+			  		 <a href="#"  id="imgdelete" data-src='"+getImageLink(data)+"'>X</a>
+			  		</div>
 			  		<br>
 			  	</c:forEach>
 	  		</td>
@@ -98,6 +100,7 @@
   </div>	
   </div>
 </form>
+<script src="resources/js/modify.js"></script>
 <c:import url="/include/footer"></c:import>
 
 <script>
