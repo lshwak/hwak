@@ -6,7 +6,8 @@ $(document).ready(function(){
 	})
 	//삭제
 	$("#del").click(function(){
-		$("#detailForm").attr("action", "delete")
+		
+		$("#detailForm").attr("action", "delete");
 	})
 })
 

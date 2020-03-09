@@ -62,5 +62,24 @@ public class BoardMapperImpl implements BoardMapper {
 		List<String> getAttachList =sqlSession.selectList(namespace+".getAttach",eno); 
 		return getAttachList;
 	}
+	// 수정 시 파일삭제
+	@Override
+	public void delAttach(int eno) throws Exception {
+		sqlSession.delete(namespace+".delAttach", eno);
+		
+	}
+	// 파일 수정
+	@Override
+	public void modiAttach(int eno, String filename) throws Exception {
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("eno",eno);
+		paramMap.put("filename",filename);
+		System.out.println("eno : "+eno);
+		System.out.println("filename : "+filename);
+		System.out.println("paramMap : "+paramMap);
+		sqlSession.insert(namespace+".modiAttach",paramMap);
+		
+	}
+	
 	
 }

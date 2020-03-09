@@ -15,7 +15,7 @@ public interface BoardService {
 	// 이벤트 상세내용
 	public BoardVO boardDetail(int eno) throws Exception;
 	// 행사 글 수정
-	public void boardModify(BoardVO board)throws Exception;
+	public void boardModify(BoardVO board) throws Exception;
 	// 행사 삭제
 	public void boardDelete(BoardVO board) throws Exception;
 	//게시판 첨부파일 가져오기

@@ -21,7 +21,7 @@
 </head>
 <body>
 <c:import url="/include/header"></c:import>
-<form action="modify" method="post" enctype="multipart/form-data">
+<form action="modify" id="modifyForm" method="post" enctype="multipart/form-data">
 <div class="container">
   <h1 id = "a">행사 수정</h1>
   <div class="middle">
@@ -35,12 +35,12 @@
 	  	<tr class="line">
 	  		<td>포스터</td>
 	  		<td>
-	  				<input type="file" id="file" name="filename">
+	  				<input type="file" id="file">
 	  				<div id="uploadedList"></div>
 	  			<c:forEach items="${getAttachList}" var="gal">
 			  		<div class="imgdelete" >
 			  		<img id="dbimg" src="displayFile?fileName=${gal}"/>
-			  		 <a href="#"  id="imgdelete" data-src='"+getImageLink(data)+"'>X</a>
+			  		 <a href="#"  id="imgdelete" data-src='${gal}'>X</a>
 			  		</div>
 			  		<br>
 			  	</c:forEach>

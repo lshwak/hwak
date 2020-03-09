@@ -99,14 +99,25 @@
 		});
 	
 		
-		$("#registerForm").submit(function(event){
-			alert("make");    
+		$("#modifyForm").submit(function(event){
+			alert("modify");    
 			event.preventDefault();
 			var that = $(this);
+			
 			var str = "";
-			$("#uploadedList small").each(function(index){
+			
+			var imgal = $(".imgdelete a").length;
+			alert("기존이미지 갯수="+imgal);
+			$(".imgdelete a").each(function(index){
 				str += "<input type='hidden' name='filename["+index+"]' value='"+$(this).attr('data-src')+"'>";
 			});
+			
+			$("#uploadedList small").each(function(index){
+				str += "<input type='hidden' name='filename["+(index+parseInt(imgal))+"]' value='"+$(this).attr('data-src')+"'>";
+			});
+			
+			
+			
 			that.append(str);
 			alert(str);
 			that.get(0).submit();

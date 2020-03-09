@@ -18,11 +18,13 @@ public interface BoardMapper {
 	public void boardModify(BoardVO board) throws Exception;
 	// 행사 삭제
 	public void boardDelete(BoardVO board) throws Exception;
-	
 	// 게시판 글 쓰기 할 때 파일 업로드
 	public void addAttach(String filename) throws Exception;
-	
 	//게시판 첨부파일 가져오기
 	public List<String> getAttach(int eno) throws Exception;
+	// 파일 수정시 삭제
+	public void delAttach(int eno) throws Exception;
+	// 파일 수정
+	public void modiAttach(int eno, String filename) throws Exception;
 	
 }

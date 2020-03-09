@@ -56,8 +56,22 @@ public class BoardServiceImpl implements BoardService{
 	}
 	// 행사 수정
 	@Override
+	@Transactional
 	public void boardModify(BoardVO board) throws Exception {
 		bm.boardModify(board);
+		int eno = board.getEno();
+		bm.delAttach(eno);
+		String[] files = board.getFilename();
+		System.out.println("boardModify files:"+files);
+		// 배열로 여러 포스터를 올릴때 (에러발생)
+		//System.out.println("여기files="+files.length);
+		if(files == null) {
+			return;
+		}
+		 for(String filename : files){ 
+			 System.out.println(filename+"향상된포문");
+			 bm.modiAttach(eno, filename);
+		 }
 		
 	}
 	//행사 삭제
@@ -66,6 +80,7 @@ public class BoardServiceImpl implements BoardService{
 		bm.boardDelete(board);
 		
 	}
+	// 파일 첨부
 	@Override
 	public List<String> getAttach(int eno) throws Exception {
 		return bm.getAttach(eno);

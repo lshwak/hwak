@@ -70,7 +70,7 @@ update boards
 
 <!-- 포스터 등록 -->
 <insert id="addAttach">
-		insert into boards_attach(filename,eno) values (#{filename}, LAST_INSERT_ID())
+			insert into boards_attach(filename,eno) values (#{filename}, LAST_INSERT_ID())
 </insert>
 	
 	
@@ -81,9 +81,13 @@ update boards
 
 <!-- 포스터 수정 -->
 
+<delete id="delAttach">
+	delete from boards_attach where eno=#{eno}
+</delete>	
 	
-	
-	
+<insert id="modiAttach">
+	insert into boards_attach (filename, eno) values (#{filename},#{eno})
+</insert>
 	
 	
 	
