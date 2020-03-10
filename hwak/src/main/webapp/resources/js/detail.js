@@ -6,9 +6,11 @@ $(document).ready(function(){
 	})
 	//삭제
 	$("#del").click(function(){
-		
 		$("#detailForm").attr("action", "delete");
 	})
+	
+	// 추천
+	
 })
 
 

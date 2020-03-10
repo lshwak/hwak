@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,13 +13,13 @@
 <!-- Custom styles for this template -->
 <link href="resources/css/modern-business.css" rel="stylesheet">
 <script type="text/javascript" src="resources/plugins/jQuery/jquery-3.4.1.js"></script>
-<!-- <script src="resources/js/event.js"></script> -->
+<script src="resources/js/event.js"></script>
 <link href="resources/css/event.css" rel="stylesheet">
 <title>DanceMoa Event</title>
 </head>
 <body>
 <c:import url="/include/header"></c:import>
-<form action="register" method="get">
+<form id="eventForm" method="get">
 
   <!-- Page Content -->
   <div class="container">
@@ -34,13 +34,13 @@
     	
     	<input type="text" name="keyword" class="search" aria-label="Search" aria-describedby="basic-addon2">
     	<div class="input-group-append">
-    		<input type="submit" value="검색" class="btn-primary">
+    		<input type="submit" value="검색" id="search" class="btn-primary">
     	</div>
     </div>
     </div>
     <div class="col-md-4">	
     	<div class="regist-area">
-    		<input type="submit" value="등록" class="btn-regist" onclick="btn_click('register')">
+    		<input type="submit" value="등록" id="regist" class="btn-regist">
     	</div>
     </div>
    </div>

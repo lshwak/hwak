@@ -13,13 +13,13 @@
 <!-- Custom styles for this template -->
 <link href="resources/css/modern-business.css" rel="stylesheet">
 <script type="text/javascript" src="resources/plugins/jQuery/jquery-3.4.1.js"></script>
-<script src="resources/js/acamemy.js"></script>
+<script src="resources/js/academy.js"></script>
 <link href="resources/css/academy.css" rel="stylesheet">
 <title>DanceMoa Academy</title>
 </head>
 <body>
 <c:import url="/include/header"></c:import>
-<form action="aregister" method="get">
+<form id="acaForm" method="get">
 <div class="middle">
 <!-- Page Content -->
   <div class="container">
@@ -32,13 +32,13 @@
     	
     	<input type="text" name="keyword" class="search" aria-label="Search" aria-describedby="basic-addon2">
     	<div class="input-group-append">
-    		<input type="submit" value="검색" class="btn-primary">
+    		<input type="submit" value="검색" id="asearch" class="btn-primary">
     	</div>
     </div>
     </div>
     <div class="col-md-4">	
     	<div class="regist-area">
-    		<input type="submit" value="등록" class="btn-regist" onclick="btn_click('aregister')">
+    		<input type="submit" value="등록" id="aregist" class="btn-regist">
     	</div>
     </div>
    </div>

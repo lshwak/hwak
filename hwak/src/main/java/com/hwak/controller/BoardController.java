@@ -66,6 +66,8 @@ public class BoardController {
 		model.addAttribute("detail", bservice.boardDetail(eno));
 		logger.info("detail detailList ... "+bservice.boardDetail(eno));
 		
+		bservice.boardCnt(eno);	// 조회수 증가
+		
 		List getAttachList = new ArrayList();
 		getAttachList = bservice.getAttach(eno);
 		logger.info("getAttachList="+getAttachList);

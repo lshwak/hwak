@@ -26,5 +26,6 @@ public interface BoardMapper {
 	public void delAttach(int eno) throws Exception;
 	// 파일 수정
 	public void modiAttach(int eno, String filename) throws Exception;
-	
+	//조회수 증가
+	public void boardCnt(int eno) throws Exception;
 }

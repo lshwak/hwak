@@ -80,6 +80,11 @@ public class BoardMapperImpl implements BoardMapper {
 		sqlSession.insert(namespace+".modiAttach",paramMap);
 		
 	}
+	// 조회수 증가
+	@Override
+	public void boardCnt(int eno) throws Exception {
+		sqlSession.update(namespace+".boardCnt",eno);
+	}
 	
 	
 }

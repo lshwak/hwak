@@ -20,4 +20,6 @@ public interface BoardService {
 	public void boardDelete(BoardVO board) throws Exception;
 	//게시판 첨부파일 가져오기
 	public List<String> getAttach(int eno) throws Exception;
+	//조회수 증가
+	public void boardCnt(int eno) throws Exception;
 }

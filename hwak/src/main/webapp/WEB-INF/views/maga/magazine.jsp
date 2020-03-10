@@ -19,7 +19,7 @@
 </head>
 <body>
 <c:import url="/include/header"></c:import>
-<form action="mregister" method="get">
+<form id="magaForm" method="get">
 
 <div class="middle">
 <!-- Page Content -->
@@ -33,13 +33,13 @@
     	
     	<input type="text" name="keyword" class="search" aria-label="Search" aria-describedby="basic-addon2">
     	<div class="input-group-append">
-    		<input type="submit" value="검색" class="btn-primary">
+    		<input type="submit" value="검색" id="msearch" class="btn-primary">
     	</div>
     </div>
     </div>
     <div class="col-md-4">	
     	<div class="regist-area">
-    		<input type="submit" value="등록" class="btn-regist" onclick="btn_click('mregister')">
+    		<input type="submit" value="등록" id="mregist" class="btn-regist">
     	</div>
     </div>
    </div>

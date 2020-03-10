@@ -13,8 +13,8 @@
 
 </insert>
 
-<!-- event 전체 목록 (페이징) -->
-<select id="boardEventPage" resultType="com.hwak.model.BoardVO">
+<!-- event 전체 목록 (페이징) @rownum 페이징에 필요  @rownum:=@rownum+1 는 가지고온 로우넘에 1더해준다        select @rownum:=0 로우넘을 0으로 초기화    -->
+<select id="boardEventPage" resultType="com.hwak.model.BoardVO"><!-- resultType 리턴타입   -->
 	select boards.*, rownum
 		from (
 			select @rownum:=@rownum+1 as rownum,b.eno, b.esubject, b.etype, b.edate, b.ecnt, a.filename as fn
@@ -24,13 +24,13 @@
             	left join boards_attach as a 
             	on a.eno=b.eno 
 			<if test="keyword!=null">
-		    where esubject like concat ('%' ,#{keyword}, '%')
+		    where esubject like concat ('%' ,#{keyword}, '%') <!-- concat 뒤의 문자열을 연결. -->
 		    </if>
 		    group by eno 
 		    order by eno desc
 	) boards
 	<![CDATA[
-	where rownum > (#{pageNum}-1) * #{amount} and rownum <= #{pageNum} * #{amount}
+	where rownum > (#{pageNum}-1) * #{amount} and rownum <= #{pageNum} * #{amount} 
 	]]>
 </select>
 
@@ -89,10 +89,12 @@ update boards
 	insert into boards_attach (filename, eno) values (#{filename},#{eno})
 </insert>
 	
+<!-- 조회수 증가 -->
+<update id="boardCnt">
+	update boards set ecnt = ecnt + 1 where eno = #{eno};
+</update>
 	
-	
-	
-	
+<!-- 메인 출력 -->
 	
 
 

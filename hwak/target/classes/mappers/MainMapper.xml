@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hwak.mapper.MainMapper">
+
+<!-- 메인 출력 limit는 뒤에 숫자만큼의 갯수 ,   order by 정렬하는 기능 desc는 내림차순 정렬 -->
+<select id="eventSelect" resultType="com.hwak.model.BoardVO">
+select b.*,ba.filename as fn from boards b left join boards_attach ba on b.eno=ba.eno   
+order by b.eno desc limit 1
+</select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

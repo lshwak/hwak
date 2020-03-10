@@ -85,5 +85,10 @@ public class BoardServiceImpl implements BoardService{
 	public List<String> getAttach(int eno) throws Exception {
 		return bm.getAttach(eno);
 	}
+	//조회수 증가
+	@Override
+	public void boardCnt(int eno) throws Exception {
+		bm.boardCnt(eno);
+	}
 	
 }	

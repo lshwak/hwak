@@ -6,8 +6,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.hwak.mapper.MemberMapper">
 	<!-- 회원가입 -->
 	<insert id="memberJoin">
-		insert into members (id,password,name,email,phone) 
-		values (#{id},#{password},#{name},#{email},#{phone})
+		insert into members (id,password,name,email,phone,grade) 
+		values (#{id},#{password},#{name},#{email},#{phone},1)
 	</insert>
 	
 	<!-- 로그인 -->

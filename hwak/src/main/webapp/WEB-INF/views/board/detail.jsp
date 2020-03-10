@@ -86,7 +86,7 @@
 	  	</tr>
 	  	<tr class="line">
 	  		<td>추천수</td>
-	  		<td>${detail.ercm}</td>
+	  		<td>${detail.ercm} &nbsp; <input type="button" id="rcmd" value="추천"></td>
 	  	</tr>
 	  	<tr class="line">
 	  	<td>포스터</td>
