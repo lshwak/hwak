@@ -1,6 +1,7 @@
 package com.hwak.model;
 
 import java.sql.Date;
+import java.util.Arrays;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -15,7 +16,8 @@ public class MagazineVO {
 	private String mwriter; // 작성자
 	private int mcnt; // 조회
 	private int mrcm; // 추천
-	private MultipartFile mimage; // 이미지
+	private String[] mimage; // 이미지
+	private String fn;
 	
 	public int getMno() {
 		return mno;
@@ -71,17 +73,23 @@ public class MagazineVO {
 	public void setMrcm(int mrcm) {
 		this.mrcm = mrcm;
 	}
-	public MultipartFile getMimage() {
+	public String[] getMimage() {
 		return mimage;
 	}
-	public void setMimage(MultipartFile mimage) {
+	public void setMimage(String[] mimage) {
 		this.mimage = mimage;
+	}
+	public String getFn() {
+		return fn;
+	}
+	public void setFn(String fn) {
+		this.fn = fn;
 	}
 	@Override
 	public String toString() {
 		return "MagazineVO [mno=" + mno + ", mtitle=" + mtitle + ", msubtitle=" + msubtitle + ", mtype=" + mtype
 				+ ", mregdate=" + mregdate + ", mcontent=" + mcontent + ", mwriter=" + mwriter + ", mcnt=" + mcnt
-				+ ", mrcm=" + mrcm + ", mimage=" + mimage + "]";
+				+ ", mrcm=" + mrcm + ", mimage=" + Arrays.toString(mimage) + ", fn=" + fn + "]";
 	}
 	
 }

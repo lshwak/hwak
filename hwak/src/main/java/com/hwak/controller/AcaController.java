@@ -1,5 +1,8 @@
 package com.hwak.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +44,11 @@ public class AcaController {
 		logger.info("acadetail get : "+ano);
 		model.addAttribute("detail", aservice.acaDetail(ano));
 		logger.info("acadetail  :"+aservice.acaDetail(ano));
+		
+		List getAttachList = new ArrayList();
+		getAttachList = aservice.getAttach(ano);
+		logger.info("getAttachList="+getAttachList);
+		model.addAttribute("getAttachList",getAttachList);
 		return "aca/acadetail";
 	}
 	/*학원 등록*/
@@ -53,6 +61,7 @@ public class AcaController {
 	@RequestMapping(value="/aregister", method=RequestMethod.POST)
 	public String aregistPost(AcademyVO aca) throws Exception {
 		logger.info("academy regist post : "+aca);
+		logger.info("파일 첨부..."+aca.getAimage());
 		aservice.acaWrite(aca);
 		return "redirect:academy";
 	}
@@ -61,13 +70,20 @@ public class AcaController {
 	public String acamodifyGet(@RequestParam int ano, Model model)throws Exception {
 		logger.info("acamodify Get ...");
 		model.addAttribute("acamodify",aservice.acaDetail(ano));
+		
+		// 저장된 포스터 가져오기.
+		List getAttachList = new ArrayList();
+		getAttachList = aservice.getAttach(ano);
+		logger.info("getAttachList="+getAttachList);
+		model.addAttribute("getAttachList",getAttachList);
 		return "aca/acamodify";
 	}
 	/*학원 수정 처리*/
 	@RequestMapping(value="/acamodify", method=RequestMethod.POST)
-	public String acamodify(AcademyVO aca) throws Exception{
+	public String acamodify(@RequestParam int ano, AcademyVO aca) throws Exception{
 		logger.info("acamodify post...");
 		aservice.acaModify(aca);
+		logger.info("파일첨부 ... "+aca.getAimage());
 		return "redirect:acadetail?ano="+aca.getAno();
 	}
 	/*학원 삭제*/

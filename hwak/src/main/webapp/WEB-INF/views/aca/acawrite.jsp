@@ -13,14 +13,14 @@
 <!-- Custom styles for this template -->
 <link href="resources/css/modern-business.css" rel="stylesheet">
 <script type="text/javascript" src="resources/plugins/jQuery/jquery-3.4.1.js"></script>
-<!-- <script src="resources/js/acawrite.js"></script>
-<link href="resources/css/acawrite.css" rel="stylesheet"> -->
+
+<link href="resources/css/acawrite.css" rel="stylesheet">
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <title>DanceMoa AcademyRegist</title>
 </head>
 <body>
 <c:import url="/include/header"></c:import>
-<form action="aregister" method="post" enctype="multipart/form-data">
+<form action="aregister" id="aregistForm" method="post" enctype="multipart/form-data">
   <div class="container">
   <h1 id = "a">학원 등록</h1>
   <div class="middle">
@@ -38,7 +38,11 @@
 	  		<td>지역</td><td><input type="text" id="title" name="aarea"></td>
 	  	</tr>
 	  	<tr class="line">
-	  		<td>이미지</td><td><input type="file" name="aimage"></td>
+	  		<td>이미지</td>
+	  		<td>
+	  			<input type="file" id="file">
+	  			<div id="uploadedList"></div>
+	  		</td>
 	  	</tr>
 	  	<tr class="line">
 	  		<td>소개내용</td><td><textarea rows="10" cols="70" name="acontent"></textarea></td>
@@ -50,6 +54,7 @@
   </div>	
   </div>
 </form>
+<script src="resources/js/acawrite.js"></script>
 <c:import url="/include/footer"></c:import>
 </body>
 </html>

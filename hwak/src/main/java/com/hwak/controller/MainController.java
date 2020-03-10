@@ -27,6 +27,8 @@ public class MainController {
 	@RequestMapping(value="/index", method=RequestMethod.GET)
 	public void main (Locale locale, Model model) throws Exception {
 		model.addAttribute("eventSelect",ms.eventSelect());
+		model.addAttribute("magaSelect",ms.magaSelect());
+		model.addAttribute("acaSelect", ms.acaSelect());
 		logger.info("MainController : ",locale);
 		
 		

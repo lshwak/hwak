@@ -1,6 +1,7 @@
 package com.hwak.model;
 
 import java.sql.Date;
+import java.util.Arrays;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,7 +17,8 @@ public class AcademyVO {
 	private int ano;		// 번호
 	private int acnt;		// 조회수
 	private int arcm;		// 추천수
-	private MultipartFile aimage;//이미지
+	private String[] aimage;//이미지
+	private String fn;
 	
 	public String getAname() {
 		return aname;
@@ -78,18 +80,23 @@ public class AcademyVO {
 	public void setArcm(int arcm) {
 		this.arcm = arcm;
 	}
-	public MultipartFile getAimage() {
+	public String[] getAimage() {
 		return aimage;
 	}
-	public void setAimage(MultipartFile aimage) {
+	public void setAimage(String[] aimage) {
 		this.aimage = aimage;
 	}
-	
+	public String getFn() {
+		return fn;
+	}
+	public void setFn(String fn) {
+		this.fn = fn;
+	}
 	@Override
 	public String toString() {
 		return "AcademyVO [aname=" + aname + ", atype=" + atype + ", amaster=" + amaster + ", aarea=" + aarea
 				+ ", acontent=" + acontent + ", awriter=" + awriter + ", aregdate=" + aregdate + ", ano=" + ano
-				+ ", acnt=" + acnt + ", arcm=" + arcm + ", aimage=" + aimage + "]";
+				+ ", acnt=" + acnt + ", arcm=" + arcm + ", aimage=" + Arrays.toString(aimage) + ", fn=" + fn + "]";
 	}
 	
 }

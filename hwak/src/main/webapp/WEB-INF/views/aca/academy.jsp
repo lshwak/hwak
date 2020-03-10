@@ -47,7 +47,14 @@
 <c:forEach items="${academy}" var="academys">
 	<tr class="line">
 		<td>
-			<a href="acadetail?ano=${academys.ano}"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+			<c:choose>
+			<c:when test="${academys.fn ne null && academys.fn ne '' }">
+				<a href="acadetail?ano=${academys.ano}"><img class="card-img-top" src="displayFile?fileName=${academys.fn}"></a>
+			</c:when>
+			<c:otherwise>
+				<a href="acadetail?ano=${academys.ano}"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+			</c:otherwise>
+			</c:choose>
 		</td>
 		<td class="textcontent">
 			<h4><a href="acadetail?ano=${academys.ano}">${academys.aname}</a></h4><br>

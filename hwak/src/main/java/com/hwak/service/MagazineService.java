@@ -18,4 +18,6 @@ public interface MagazineService {
 	public void mModify(MagazineVO maga) throws Exception;
 	// 매거진 삭제
 	public void mDelete(MagazineVO maga) throws Exception;
+	//게시판 첨부파일 가져오기
+	public List<String> getAttach(int mno) throws Exception;
 }

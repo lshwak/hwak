@@ -18,4 +18,12 @@ public interface MagazineMapper {
 	public void mModify(MagazineVO maga) throws Exception;
 	// 매거진 삭제
 	public void mDelete(MagazineVO maga) throws Exception;
+	// 매거진 등록 파일 업로드
+	public void addAttach(String mimage) throws Exception;
+	//게시판 첨부파일 가져오기
+	public List<String> getAttach(int mno) throws Exception;
+	// 파일 수정시 삭제
+	public void delAttach(int mno) throws Exception;
+	// 파일 수정
+	public void modiAttach(int mno, String mimage) throws Exception;
 }

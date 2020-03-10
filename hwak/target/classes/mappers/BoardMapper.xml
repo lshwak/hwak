@@ -80,7 +80,6 @@ update boards
 </select>
 
 <!-- 포스터 수정 -->
-
 <delete id="delAttach">
 	delete from boards_attach where eno=#{eno}
 </delete>	
@@ -94,7 +93,6 @@ update boards
 	update boards set ecnt = ecnt + 1 where eno = #{eno};
 </update>
 	
-<!-- 메인 출력 -->
 	
 
 

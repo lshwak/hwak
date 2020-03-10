@@ -1,5 +1,8 @@
 package com.hwak.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +45,11 @@ public class MagaController {
 		logger.info("magadetail get : "+mno);
 		model.addAttribute("detail", mgservice.magaDetail(mno));
 		logger.info("magadetail : "+mgservice.magaDetail(mno));
+		
+		List getAttachList = new ArrayList();
+		getAttachList = mgservice.getAttach(mno);
+		logger.info("getAttachList="+getAttachList);
+		model.addAttribute("getAttachList",getAttachList);
 		return "maga/magadetail";
 	}
 	/*매거진 등록*/
@@ -55,6 +63,7 @@ public class MagaController {
 	public String mregistPost(MagazineVO maga) throws Exception {
 		logger.info("mregist post ..."+maga);
 		logger.info("mregist title"+maga.getMtitle());
+		logger.info("파일 첨부..."+maga.getMimage());
 		mgservice.mWrite(maga);
 		return "redirect:magazine";
 	}
@@ -63,13 +72,21 @@ public class MagaController {
 	public String magamodifyGet(@RequestParam int mno,Model model) throws Exception {
 		logger.info("magamodify Get : "+mno);
 		model.addAttribute("magamodify", mgservice.magaDetail(mno));
+		
+		// 저장된 포스터 가져오기.
+		List getAttachList = new ArrayList();
+		getAttachList = mgservice.getAttach(mno);
+		logger.info("getAttachList="+getAttachList);
+		model.addAttribute("getAttachList",getAttachList);
+		
 		return "maga/magamodify";
 	}
 	/*매거진 수정처리*/
 	@RequestMapping(value="/magamodify", method=RequestMethod.POST)
-	public String magamodifyPost(MagazineVO maga)throws Exception {
+	public String magamodifyPost(@RequestParam int mno,MagazineVO maga)throws Exception {
 		logger.info("modify post"+maga);
 		mgservice.mModify(maga);
+		logger.info("파일첨부 ... "+maga.getMimage());
 		return "redirect:magadetail?mno="+maga.getMno();
 	}
 	/*매거진 삭제*/

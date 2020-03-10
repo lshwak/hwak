@@ -48,7 +48,14 @@
 <c:forEach items="${magazine}" var="magazines">
 	<tr class="line">
 		<td>
-			<a href="magadetail?mno=${magazines.mno}"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+			<c:choose>
+			<c:when test="${magazines.fn ne null && magazines.fn ne '' }">
+				<a href="magadetail?mno=${magazines.mno}"><img class="card-img-top" src="displayFile?fileName=${magazines.fn}"></a>
+			</c:when>
+			<c:otherwise>
+				<a href="magadetail?mno=${magazines.mno}"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+			</c:otherwise>
+			</c:choose>
 		</td>
 		<td class="textcontent">
 			<h4><a href="magadetail?mno=${magazines.mno}">${magazines.mtitle}</a></h4><br>

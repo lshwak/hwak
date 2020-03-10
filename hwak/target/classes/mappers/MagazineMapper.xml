@@ -7,14 +7,18 @@
 
 <!-- 매거진 전체 목록(페이징) -->
 <select id="magazinePage" resultType="com.hwak.model.MagazineVO">
-	select mno,mtitle,msubtitle,mtype,mregdate,mwriter
+	select magazines.*, rownum
 	from (
-		select @rownum:=@rownum+1 as rownum, mno,mtitle,msubtitle,mtype,mregdate,mwriter
+		select @rownum:=@rownum+1 as rownum, m.mno,m.mtitle,m.msubtitle,m.mtype,m.mregdate,m.mwriter,ma.mimage as fn
 		from (select @rownum:=0) as rownum 
 			, magazines
+			as m
+			left join magazine_attach as ma
+			on m.mno = ma.mno
 		<if test="keyword!=null">
 		where mtitle like concat ('%',#{keyword},'%')
 		</if>
+		group by mno
 		order by mno desc
 	) magazines
 	<![CDATA[
@@ -58,6 +62,31 @@ where mno = #{mno}
 delete from magazines
 where mno= #{mno}
 </delete>
+
+<!-- 포스터 등록 -->
+<insert id="addAttach">
+			insert into magazine_attach(mimage, mno) values (#{mimage}, LAST_INSERT_ID())
+</insert>
+
+<!-- 상세보기 첨부파일가져오기  -->
+<select id="getAttach" resultType="String">
+	select mimage from magazine_attach where mno=#{mno}
+</select>
+
+<!-- 포스터 수정 -->
+<delete id="delAttach">
+	delete from magazine_attach where mno=#{mno}
+</delete>	
+	
+<insert id="modiAttach">
+	insert into magazine_attach (mimage, mno) values (#{mimage},#{mno})
+</insert>
+
+
+
+
+
+
 
 
 

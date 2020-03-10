@@ -6,14 +6,18 @@
 	
 <!-- 학원 전체 목록 -->
 <select id="acaPage" resultType="com.hwak.model.AcademyVO">
-	select ano,aname,atype,aarea,aimage
+	select academys.*, rownum
 		from (
-		select @rownum:=@rownum+1 as rownum, ano,aname,atype,aarea,aimage
+		select @rownum:=@rownum+1 as rownum, a.ano,a.aname,a.atype,a.aarea,t.aimage as fn
 		from (select @rownum:=0) as rownum
 		,academys
+		as a
+		left join academy_attach as t
+		on a.ano = t.ano
 		<if test="keyword!=null">
 		where aname like concat ('%',#{keyword},'%')
 		</if>
+		group by ano
 		order by ano desc
 		) academys
 	<![CDATA[
@@ -56,6 +60,26 @@ set aname = #{aname},
 delete from academys
 where ano = #{ano}
 </delete>
+
+<!-- 포스터 등록 -->
+<insert id="addAttach">
+			insert into academy_attach(aimage, ano) values (#{aimage}, LAST_INSERT_ID())
+</insert>
+
+<!-- 상세보기 첨부파일가져오기  -->
+<select id="getAttach" resultType="String">
+	select aimage from academy_attach where ano=#{ano}
+</select>
+
+<!-- 포스터 수정 -->
+<delete id="delAttach">
+	delete from academy_attach where ano=#{ano}
+</delete>	
+	
+<insert id="modiAttach">
+	insert into academy_attach (aimage, ano) values (#{aimage},#{ano})
+</insert>
+
 
 
 

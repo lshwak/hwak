@@ -1,6 +1,8 @@
 package com.hwak.mapper;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -48,5 +50,33 @@ public class MagazineMapperImpl implements MagazineMapper {
 	public void mDelete(MagazineVO maga) throws Exception {
 		sqlSession.update(namespace+".mgDelete",maga);
 	}
-	
+	// 매거진 등록 파일 업로드
+	@Override
+	public void addAttach(String mimage) throws Exception {
+		sqlSession.insert(namespace+".addAttach",mimage);
+	}
+	// 상세페이지 파일
+	@Override
+	public List<String> getAttach(int mno) throws Exception {
+		List<String> getAttachList =sqlSession.selectList(namespace+".getAttach",mno); 
+		return getAttachList;
+	}
+	// 수정 시 파일삭제
+	@Override
+	public void delAttach(int mno) throws Exception {
+		sqlSession.delete(namespace+".delAttach", mno);
+		
+	}
+	// 파일 수정
+	@Override
+	public void modiAttach(int mno, String mimage) throws Exception {
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("mno",mno);
+		paramMap.put("mimage",mimage);
+		System.out.println("mno : "+mno);
+		System.out.println("filename : "+mimage);
+		System.out.println("paramMap : "+paramMap);
+		sqlSession.insert(namespace+".modiAttach",paramMap);
+		
+	}
 }

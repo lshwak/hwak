@@ -57,6 +57,7 @@ public class BoardMapperImpl implements BoardMapper {
 	public void addAttach(String filename) throws Exception {
 		sqlSession.insert(namespace+".addAttach",filename);
 	}
+	// 상세페이지 파일
 	@Override
 	public List<String> getAttach(int eno) throws Exception {
 		List<String> getAttachList =sqlSession.selectList(namespace+".getAttach",eno); 

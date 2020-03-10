@@ -13,14 +13,14 @@
 <!-- Custom styles for this template -->
 <link href="resources/css/modern-business.css" rel="stylesheet">
 <script type="text/javascript" src="resources/plugins/jQuery/jquery-3.4.1.js"></script>
-<script src="resources/js/magawrite.js"></script>
+
 <link href="resources/css/magawrite.css" rel="stylesheet">
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <title>DanceMoa MagazineRegist</title>
 </head>
 <body>
 <c:import url="/include/header"></c:import>
-<form action="mregister" method="post" enctype="multipart/form-data">
+<form action="mregister" id="mregistForm" method="post" enctype="multipart/form-data">
   <div class="container">
   <h1 id = "a">잡지 등록</h1>
   <div class="middle">
@@ -34,7 +34,8 @@
 	  	<tr class="line">
 	  		<td>포스터</td>
 	  		<td>
-	  			<input type="file" name="mimage">
+	  			<input type="file" id="file">
+	  			<div id="uploadedList"></div>
 	  		</td>
 	  	</tr>
 	  	<tr class="line">
@@ -47,6 +48,7 @@
   </div>	
   </div>
 </form>
+<script src="resources/js/magawrite.js"></script>
 <c:import url="/include/footer"></c:import>
 </body>
 </html>

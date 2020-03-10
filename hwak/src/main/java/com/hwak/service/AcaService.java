@@ -18,4 +18,6 @@ public interface AcaService {
 	public void acaModify(AcademyVO aca) throws Exception;
 	// 학원 삭제
 	public void acaDelelte(AcademyVO aca) throws Exception;
+	//게시판 첨부파일 가져오기
+	public List<String> getAttach(int ano) throws Exception;
 }

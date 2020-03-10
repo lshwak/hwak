@@ -61,7 +61,12 @@
 	  	
 	  	<tr class="line">
 	  		
-	  		<td>${detail.mimage}</td>
+	  		<td>
+	  		<c:forEach items="${getAttachList}" var="gal">
+	  		<img src="displayFile?fileName=${gal}"/>
+	  		<br>
+	  		</c:forEach>
+	  		</td>
 	  	</tr>
 	  	<tr class="line">
 	  		

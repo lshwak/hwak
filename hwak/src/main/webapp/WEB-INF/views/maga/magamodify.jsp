@@ -13,14 +13,14 @@
 <!-- Custom styles for this template -->
 <link href="resources/css/modern-business.css" rel="stylesheet">
 <script type="text/javascript" src="resources/plugins/jQuery/jquery-3.4.1.js"></script>
-<!-- <script src="resources/js/magamodify.js"></script>
-<link href="resources/css/magamodify.css" rel="stylesheet"> -->
+
+<link href="resources/css/magamodify.css" rel="stylesheet">
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <title>DanceMoa MagazineRegist</title>
 </head>
 <body>
 <c:import url="/include/header"></c:import>
-<form action="magamodify" method="post" enctype="multipart/form-data">
+<form action="magamodify" id="magamodiForm" method="post" enctype="multipart/form-data">
   <div class="container">
   <h1 id = "a">잡지 수정</h1>
   <div class="middle">
@@ -35,7 +35,15 @@
 	  	<tr class="line">
 	  		<td>포스터</td>
 	  		<td>
-	  			<input type="file" name="mimage">
+	  				<input type="file" id="file">
+	  				<div id="uploadedList"></div>
+	  			<c:forEach items="${getAttachList}" var="gal">
+			  		<div class="imgdelete" >
+			  		<img id="dbimg" src="displayFile?fileName=${gal}"/>
+			  		 <a href="#"  id="imgdelete" data-src='${gal}'>X</a>
+			  		</div>
+			  		<br>
+			  	</c:forEach>
 	  		</td>
 	  	</tr>
 	  	<tr class="line">
@@ -48,6 +56,7 @@
   </div>	
   </div>
 </form>
+<script src="resources/js/magamodify.js"></script>
 <c:import url="/include/footer"></c:import>
 </body>
 </html>

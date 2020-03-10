@@ -13,14 +13,14 @@
 <!-- Custom styles for this template -->
 <link href="resources/css/modern-business.css" rel="stylesheet">
 <script type="text/javascript" src="resources/plugins/jQuery/jquery-3.4.1.js"></script>
-<!-- <script src="resources/js/acamodify.js"></script>
-<link href="resources/css/acamodify.css" rel="stylesheet"> -->
+
+<link href="resources/css/acamodify.css" rel="stylesheet">
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <title>DanceMoa MagazineRegist</title>
 </head>
 <body>
 <c:import url="/include/header"></c:import>
-<form action="acamodify" method="post" enctype="multipart/form-data">
+<form action="acamodify" id="acamodiForm" method="post" enctype="multipart/form-data">
   <div class="container">
   <h1 id = "a">잡지 수정</h1>
   <div class="middle">
@@ -39,7 +39,18 @@
 	  		<td>지역</td><td><input type="text" id="area" name="aarea" value="${acamodify.aarea}"></td>
 	  	</tr>
 	  	<tr class="line">
-	  		<td>이미지</td><td><input type="file" name="aimage"></td>
+	  		<td>이미지</td>
+	  		<td>
+	  			<input type="file" id="file">
+	  				<div id="uploadedList"></div>
+	  			<c:forEach items="${getAttachList}" var="gal">
+			  		<div class="imgdelete" >
+			  		<img id="dbimg" src="displayFile?fileName=${gal}"/>
+			  		 <a href="#"  id="imgdelete" data-src='${gal}'>X</a>
+			  		</div>
+			  		<br>
+			  	</c:forEach>
+	  		</td>
 	  	</tr>
 	  	<tr class="line">
 	  		<td>소개내용</td><td><textarea rows="10" cols="70" name="acontent">${acamodify.acontent}</textarea></td>
@@ -51,6 +62,7 @@
   </div>	
   </div>
 </form>
+<script src="resources/js/acamodify.js"></script>
 <c:import url="/include/footer"></c:import>
 </body>
 </html>

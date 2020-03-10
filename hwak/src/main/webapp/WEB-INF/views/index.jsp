@@ -14,6 +14,7 @@
 <link href="resources/css/modern-business.css" rel="stylesheet">
 <script type="text/javascript" src="resources/plugins/jQuery/jquery-3.4.1.js"></script>
 <script type="text/javascript" src="resources/js/index.js"></script>
+<link href="resources/css/index.css" rel="stylesheet">
  <title>DanceMoa Korea</title>
 </head>
 <body>
@@ -31,24 +32,24 @@
         <!-- Slide One - Set the background image for this slide in the line below -->
         <div class="carousel-item active" style="background-image: url('displayFile?fileName=${eventSelect.fn}')">
           <div class="carousel-caption d-none d-md-block">
-            <h3>First Slide</h3>
-            <p>This is a description for the first slide.</p>
+            <h3>${eventSelect.esubject}</h3>
+            <p>일시: ${eventSelect.edate} | 타입: ${eventSelect.etype} | Views: ${eventSelect.ecnt}</p>
           </div>
         </div>
         
         
         <!-- Slide Two - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+        <div class="carousel-item" style="background-image: url('displayFile?fileName=${magaSelect.fn}')">
           <div class="carousel-caption d-none d-md-block">
-            <h3>Second Slide</h3>
+            <h3>${magaSelect.mtitle}</h3>
             <p>This is a description for the second slide.</p>
           </div>
         </div>
         <!-- Slide Three - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+        <div class="carousel-item" style="background-image: url('displayFile?fileName=${acaSelect.fn}')">
           <div class="carousel-caption d-none d-md-block">
-            <h3>Third Slide</h3>
-            <p>This is a description for the third slide.</p>
+            <h3>${acaSelect.aname}</h3>
+            <p>전문분야 : ${acaSelect.atype} | 작성일 : ${acaSelect.aregdate} | Views : ${acaSelect.acnt} | ${acaSelect.arcm} | 지역 : ${acaSelect.aarea} | 대표 : ${acaSelect.amaster}</p>
           </div>
         </div>
       </div>
@@ -70,10 +71,10 @@
     
     <div class="row">
     
-    
+    <!-- 최근 event -->
       <div class="col-lg-4 col-sm-6 portfolio-item">
         <div class="card h-100">
-          <a href="detail?eno=${eventSelect.eno}"><img class="card-img-top" src="displayFile?fileName=${eventSelect.fn}" alt=""></a>
+          <a href="detail?eno=${eventSelect.eno}"><img height="250" class="card-img-top" src="displayFile?fileName=${eventSelect.fn}" alt=""></a>
           <div class="card-body">
             <h4 class="card-title">
               <a href="detail?eno=${eventSelect.eno}">${eventSelect.esubject}</a>
@@ -83,28 +84,28 @@
         </div>
       </div>
       
-      
+      <!-- 최근 magazine -->
       <div class="col-lg-4 col-sm-6 portfolio-item">
         <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <a href="magadetail?mno=${magaSelect.mno}"><img height="250" class="card-img-top" src="displayFile?fileName=${magaSelect.fn}" alt=""></a>
           <div class="card-body">
             <h4 class="card-title">
-              <a href="#">Project Two</a>
+              <a href="magadetail?mno=${magaSelect.mno}">${magaSelect.mtitle}</a>
             </h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            <p class="card-text"></p>
           </div>
         </div>
       </div>
       
-      
+      <!-- 최근 academy -->
       <div class="col-lg-4 col-sm-6 portfolio-item">
         <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <a href="acadetail?ano=${acaSelect.ano}"><img height="250" class="card-img-top" src="displayFile?fileName=${acaSelect.fn}" alt=""></a>
           <div class="card-body">
             <h4 class="card-title">
-              <a href="#">Project Three</a>
+              <a href="acadetail?ano=${acaSelect.ano}">${acaSelect.aname}</a>
             </h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quisquam, error quod sed cumque, odio distinctio velit nostrum temporibus necessitatibus et facere atque iure perspiciatis mollitia recusandae vero vel quam!</p>
+            <p class="card-text">전문분야 : ${acaSelect.atype} | 작성일 : ${acaSelect.aregdate} | Views : ${acaSelect.acnt} | ${acaSelect.arcm} | 지역 : ${acaSelect.aarea} | 대표 : ${acaSelect.amaster}</p>
           </div>
         </div>
       </div>

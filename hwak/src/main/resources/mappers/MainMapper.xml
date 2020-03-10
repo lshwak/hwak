@@ -11,9 +11,15 @@ select b.*,ba.filename as fn from boards b left join boards_attach ba on b.eno=b
 order by b.eno desc limit 1
 </select>
 
+<select id="magaSelect" resultType="com.hwak.model.MagazineVO">
+select m.*,ma.mimage as fn from magazines m left join magazine_attach ma on m.mno=ma.mno   
+order by m.mno desc limit 1
+</select>
 
-
-
+<select id="acaSelect" resultType="com.hwak.model.AcademyVO">
+select a.*,t.aimage as fn from academys a left join academy_attach t on a.ano=t.ano   
+order by a.ano desc limit 1
+</select>
 
 
 
