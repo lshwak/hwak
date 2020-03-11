@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.hwak.mapper.MemberMapper">
 	<!-- 회원가입 -->
-	<insert id="memberJoin">
+	<insert id="memberJoin"> <!-- grade 회원가입을 할 때 등급 1추가 -->
 		insert into members (id,password,name,email,phone,grade) 
 		values (#{id},#{password},#{name},#{email},#{phone},1)
 	</insert>
@@ -19,7 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 아이디 중복체크 -->
-	<select id="idChk" resultType="int">
+	<select id="idChk" resultType="int"><!-- 중복 데이터를 갯수로 여부확인. -->
 		select count(*) from members
 		where id = #{id}
 	</select>

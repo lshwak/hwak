@@ -29,21 +29,14 @@
 
    <div class="row">
    <div class="col-md-8">
-   	<div class="input-group">
-    	<input type="hidden" name="pageNum" value="${page.cri.getPageNum()}">
-    	<input type="hidden" name="amount" value="${page.cri.getAmount()}">
-    	
-    	<input type="text" name="keyword" class="search" aria-label="Search" aria-describedby="basic-addon2">
-    	<div class="input-group-append">
-    		<input type="submit" value="검색" class="btn-primary">
-    	</div>
-    </div>
+   		
     </div>
     <div class="modclass">	
     	<div class="modify-area">
     		<input type="submit" value="수정" id="modi">
     	</div>
     </div>
+    &nbsp;
     <div class="delclass">	
     	<div class="modify-area">
     		<input type="submit" value="삭제" id="del">

@@ -27,15 +27,7 @@
 	<h1 id="a">Academy</h1>
   	<div class="row">
    <div class="col-md-8">
-   	<div class="input-group">
-    	<input type="hidden" name="pageNum" value="${page.cri.getPageNum()}">
-    	<input type="hidden" name="amount" value="${page.cri.getAmount()}">
-    	<input type="hidden" name="ano" value="${detail.ano}">
-    	<input type="text" name="keyword" class="search" aria-label="Search" aria-describedby="basic-addon2">
-    	<div class="input-group-append">
-    		<input type="submit" value="검색" class="btn-primary">
-    	</div>
-    </div>
+  	<input type="hidden" name="ano" value="${detail.ano}">
     </div>
     <div class="modclass">	
     	<div class="modify-area">
@@ -52,13 +44,12 @@
 <table>
 
 		<tr class="linetop">
-	  		<td>${detail.ano}</td>
+	  		
+	  		<td>전문분야 : ${detail.atype} | 지역 : ${detail.aarea} | 대표 : ${detail.amaster}</td>
 	  	</tr>
 	  	<tr class="line">
-	  		
-	  		<td>전문분야 : ${detail.atype} | 작성일 : ${detail.aregdate} | Views : ${detail.acnt} | ${detail.arcm} | 지역 : ${detail.aarea} | 대표 : ${detail.amaster}</td>
+	  		<td>작성일 : ${detail.aregdate} | Views : ${detail.acnt} | ${detail.arcm}</td>
 	  	</tr>
-	  	
 	  	<tr class="line">
 	  		
 	  		<td>

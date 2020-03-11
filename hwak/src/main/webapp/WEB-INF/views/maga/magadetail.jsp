@@ -27,16 +27,9 @@
 	<h1 id="a">Magazine</h1>
   	<div class="row">
    <div class="col-md-8">
-   	<div class="input-group">
-    	<input type="hidden" name="pageNum" value="${page.cri.getPageNum()}">
-    	<input type="hidden" name="amount" value="${page.cri.getAmount()}">
-    	<input type="hidden" name="mno" value="${detail.mno}">
-    	<input type="text" name="keyword" class="search" aria-label="Search" aria-describedby="basic-addon2">
-    	<div class="input-group-append">
-    		<input type="submit" value="검색" class="btn-primary">
-    	</div>
+   <input type="hidden" name="mno" value="${detail.mno}">
     </div>
-    </div>
+    
     <div class="modclass">	
     	<div class="modify-area">
     		<input type="submit" value="수정" id="modi">

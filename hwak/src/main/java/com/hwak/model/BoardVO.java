@@ -4,19 +4,19 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class BoardVO {
 	private int eno;
-	private String esubject;
-	private String econtent;
-	private String edate;
-	private String estyle;
-	private String etype;
-	private String eaddress;
-	private String ewriter;
-	private String ewrite_date;
-	private int ecnt;
-	private int ercm;
+	private String esubject; // 행사명
+	private String econtent; // 내용
+	private String edate; // 행사날짜
+	private String estyle; // 장르
+	private String etype; // 행사 타입
+	private String eaddress; // 행사장
+	private String ewriter; // 작성자
+	private String ewrite_date; // 작성일
+	private int ecnt; // 조회수
+	private int ercm; // 추처누
 	//private MultipartFile files;		// file upload
-	private String[] filename;
-	private String fn;
+	private String[] filename; // 포스터를 여러장 올리기 위해 String배열
+	private String fn; // 썸네일로 담을 공간
 	
 	
 	

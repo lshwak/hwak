@@ -12,6 +12,9 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
+
+
+<h1><a href="index">Let Go Dance Moa!</a></h1>
 </body>
 </html>
 

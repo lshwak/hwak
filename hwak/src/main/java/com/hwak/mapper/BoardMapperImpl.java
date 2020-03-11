@@ -73,6 +73,7 @@ public class BoardMapperImpl implements BoardMapper {
 	@Override
 	public void modiAttach(int eno, String filename) throws Exception {
 		Map<String, Object> paramMap = new HashMap<String, Object>();
+		// paramMap: 하나 이상의 타입 적용.
 		paramMap.put("eno",eno);
 		paramMap.put("filename",filename);
 		System.out.println("eno : "+eno);

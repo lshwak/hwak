@@ -68,7 +68,7 @@ update boards
 	where eno = #{eno}
 </delete>
 
-<!-- 포스터 등록 -->
+<!-- 포스터 등록 --> <!-- LAST_INSERT_ID()는 가장 마지막 등록된 insert구문의 첫번째 auto_increment column의 값을 반환. -->
 <insert id="addAttach">
 			insert into boards_attach(filename,eno) values (#{filename}, LAST_INSERT_ID())
 </insert>

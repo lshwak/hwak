@@ -25,11 +25,12 @@ public class MainController {
 	
 	/*메인*/
 	@RequestMapping(value="/index", method=RequestMethod.GET)
-	public void main (Locale locale, Model model) throws Exception {
+	public void main (Model model) throws Exception {
+		// 각 최근게시물 출력.
 		model.addAttribute("eventSelect",ms.eventSelect());
 		model.addAttribute("magaSelect",ms.magaSelect());
 		model.addAttribute("acaSelect", ms.acaSelect());
-		logger.info("MainController : ",locale);
+		logger.info("MainController : ", model);
 		
 		
 		

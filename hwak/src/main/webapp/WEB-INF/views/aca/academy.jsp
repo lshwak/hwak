@@ -58,7 +58,7 @@
 		</td>
 		<td class="textcontent">
 			<h4><a href="acadetail?ano=${academys.ano}">${academys.aname}</a></h4><br>
-			${academys.atype} | View : ${academys.aarea} 
+			${academys.atype} | ${academys.aarea} 
 		</td>
 	</tr>
 	</c:forEach>

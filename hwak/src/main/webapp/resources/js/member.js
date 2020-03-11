@@ -7,12 +7,12 @@ var rannum="";	// 이메일인증난수 전역변수
 function checkId() {
      $.ajax({	
  		url : "idChk", // 보낼 url주소.
- 		type : "post", //
+ 		type : "post", 
  		dataType : "json", //dataType : 리턴을 받는 타입이json
  		data : {"id" : $("#idCheck").val()}, // 보낼 데이터
  		success : function(data) {
  			
- 			if(data == 1) {
+ 			if(data == 1) {	// 같은 data가 존재하면.
  				document.getElementById("idRes").innerHTML=
  				"이미 존재하는 아이디입니다.";
  				idRes.style.color = "red";
@@ -130,14 +130,14 @@ $(document).ready(function(){
 	})
 	
 	// 연락처 두번째 입력상자에 숫자만...
-	$("input:text[numberOnly]").on("keyup", function() {
+	$("input:text[numberOnly]").on("keyup", function() { // input:text[numberOnly]:숫자만 입력가능. 
 	    $(this).val($(this).val().replace(/[^0-9]/g,""));
 	    
 	    
 	    var pone = document.getElementById("pnum1").value
 	    var ptwo = document.getElementById("pnum2").value
 	    var pthree = document.getElementById("pnum3").value
-	    document.getElementById("pnum").value = (pone+ptwo+pthree);
+	    document.getElementById("pnum").value = (pone+ptwo+pthree); // 키를 누를 때 마다 pnum에 입력.
 	    
 	});
 })
@@ -199,11 +199,14 @@ function phonemerge() {
     var pthree = document.getElementById("pnum3").value
     document.getElementById("pnum").value = (pone+ptwo+pthree);
 }
+// select option과 input:text를 따로 합치는 작업을 해줘야 앞,뒤 입력 순서 상관없이 pnum에 입력이 된다.
+
+
 // 발송버튼 눌렀을 때 인증번호 받기
 var ran = 'trandom';           // 전역변수로 지정
 /*function random() {
             // 지역변수
-                   ran = Math.floor(Math.random()*10000)+10000;       // 다섯자리의 랜덤메소드.
+                   ran = Math.floor(Math.random()*10000)+10000; // 다섯자리의 랜덤메소드를 controller로 이동.
           alert("인증번호 "+ran+"를 입력하세요");
 }*/
 // 번호확인버튼 눌렀을 때 인증번호 매칭
@@ -220,7 +223,7 @@ function match() {
           }
 }
 
-//가입하기 submit버튼
+//가입하기 submit버튼 
 //function checking() {
 // 입력한 이메일 값 합치기
 //       var one = document.getElementById("mail1").value
@@ -231,7 +234,7 @@ function match() {
 //       var ptwo = document.getElementById("pnum2").value
 //       var pthree = document.getElementById("pnum3").value
 //      document.getElementById("pnum").value = (pone+ptwo+pthree);       
-//}
+//} 메일 인증을 위해 onkeyup으로 즉시 담고 처리가 되어야 submit을 할 수 있어서 submit에 합치는 작업을 넣을 수 없음.
 
 
 

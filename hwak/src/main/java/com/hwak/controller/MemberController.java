@@ -42,7 +42,7 @@ public class MemberController {
 	public String loginPost (LoginVO log, Model model,HttpServletRequest request) throws Exception {
 		System.out.println("loginPost진입");
 		MemberVO member = mservice.login(log);
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(); // session을 담을 공간
 		// 위에 정의되어 있는 member 변수의 값을 model에 저장.
 		// model.addAttribute("member", member); // session으로 가기때문에 model에 담을 필요성이 없다
 		logger.info("MemberController login : "+log +member);
@@ -60,7 +60,8 @@ public class MemberController {
 	/*로그아웃*/
 	@RequestMapping("/logout")
 	public ModelAndView logout(HttpSession session) {
-		session.invalidate();
+		// ModelAndView : 데이터 전송 시킬 수 있는 타입. model과 view모두 리턴 가능. /String타입은 단순 페이지 열어주는 역할.
+		session.invalidate(); // 세션 무효화.
 		logger.info("MemberController logout ");
 		ModelAndView mv = new ModelAndView("redirect:/index");
 		return mv;
