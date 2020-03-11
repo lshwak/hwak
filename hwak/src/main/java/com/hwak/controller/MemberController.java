@@ -28,6 +28,7 @@ public class MemberController {
 	private MemberService mservice;
 	@Autowired
 	private JavaMailSender mailSender;
+
 	
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	
@@ -37,19 +38,23 @@ public class MemberController {
 		logger.info("MemberController login : ");
 	}
 	/*로그인 처리*/
-	@RequestMapping(value="/loginPost", method=RequestMethod.POST)
+	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String loginPost (LoginVO log, Model model,HttpServletRequest request) throws Exception {
+		System.out.println("loginPost진입");
 		MemberVO member = mservice.login(log);
 		HttpSession session = request.getSession();
 		// 위에 정의되어 있는 member 변수의 값을 model에 저장.
-		model.addAttribute("member", member);
+		// model.addAttribute("member", member); // session으로 가기때문에 model에 담을 필요성이 없다
 		logger.info("MemberController login : "+log +member);
+		session.setAttribute("login", member); 
 		System.out.println("MemberController LOGIN session="+session.getAttribute("LOGIN"));
 		// 세션에 값이 있으면
-		if(session.getAttribute("LOGIN")!=null) {
-			return "index";// index.jsp로 가라. 
+		if(session.getAttribute("login")!=null) {
+			System.out.println("index 진입");
+			return "redirect:/index";// index.jsp로 가라. redirect하여 get방식으로 보내주기
 		}else {// 아니면
-			return "login";// login.jsp로 가라.
+			System.out.println("login 진입");
+			return "redirect:/login";// login.jsp로 가라. get방식이기때문에 redirect가 필요없을 수도.
 		}
 	}
 	/*로그아웃*/
@@ -86,17 +91,17 @@ public class MemberController {
 	@ResponseBody
 	@RequestMapping(value="mail", method=RequestMethod.POST)
 	public String mailSending(String tomail) {
-		int ran = (int)(Math.random()*10000)+10000;
+		int ran = (int)(Math.random()*10000)+10000; // 다섯자리 난수함수.
 		logger.info("ran : "+ran);
 		logger.info("email"+tomail);
 		try {
 			MimeMessage message = mailSender.createMimeMessage();
 			MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "utf-8");
 			
-			messageHelper.setFrom("lshwak5170@gmail.com");
-			messageHelper.setTo(tomail);
-			messageHelper.setSubject("댄스모아 인증번호입니다.");
-			messageHelper.setText("인증번호 [ "+ran+" ] 를 입력해주세요.");
+			messageHelper.setFrom("lshwak5170@gmail.com");	// 보내는 사람
+			messageHelper.setTo(tomail); // 입력한 메일주소
+			messageHelper.setSubject("댄스모아 인증번호입니다."); // 메일 제목
+			messageHelper.setText("인증번호 [ "+ran+" ] 를 입력해주세요."); //메일 내용
 			
 			mailSender.send(message);
 		}catch (Exception e) {

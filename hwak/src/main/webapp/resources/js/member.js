@@ -24,17 +24,17 @@ function checkId() {
  	
 }
 
-function form_check() {
+function form_check() { // form전송 전 유효성 검사 onsubmit
 	
-	var result=true;
-	var idRes = document.getElementById("idRes").innerHTML;
-	var pwRes = document.getElementById("pwRes").innerHTML;
-    var id = document.getElementById("idCheck").value;
-	var pw = document.getElementById("pwCheck").value;
-	var repw = document.getElementById("repwCheck").value;
-	var name = document.getElementById("nameCheck").value.length;
-	var phone = document.getElementById("pnum").value.length;
-	var randomNum = document.getElementById("numCheck").value;
+	var result=true; // 기본 값을 true
+	var idRes = document.getElementById("idRes").innerHTML; // 아이디 유효성검사 메시지
+	var pwRes = document.getElementById("pwRes").innerHTML;	// 비번 유효성검사 메시지
+    var id = document.getElementById("idCheck").value; // 아이디 입력
+	var pw = document.getElementById("pwCheck").value; // 비번 입력
+	var repw = document.getElementById("repwCheck").value; // 비번확인 입력
+	var name = document.getElementById("nameCheck").value.length; // 이름 입력
+	var phone = document.getElementById("pnum").value.length; // 입력한 전체 연락처
+	var randomNum = document.getElementById("numCheck").value; // 인증번호 입력
 	
 	// 아이디 체크
 	if(idRes != "사용가능한 아이디입니다."){
@@ -80,7 +80,7 @@ function form_check() {
 }
 
 $(document).ready(function(){
-	var idpt=RegExp(/^[a-zA-Z0-9_]{3,12}$/);
+	var idpt=RegExp(/^[a-zA-Z0-9_]{3,12}$/); // 생성자함수. 패턴 가져오기
 	//아이디 패턴,길이
 	$("#idCheck").keyup(function(){
 		if(!(idpt.test($("#idCheck").val()))) {
@@ -112,7 +112,7 @@ $(document).ready(function(){
 	    var two = document.getElementById("mailRes").value
 	    document.getElementById("summail").value = (one +"@"+ two);
 		var tomail = $("#summail").val();
-	
+	// MemberController 이메일 인증.
 		$.ajax({
 			url : "mail",
 			type : "post",

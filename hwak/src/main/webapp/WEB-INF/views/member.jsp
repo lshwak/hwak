@@ -19,7 +19,7 @@
 </head>
 <body>
 <c:import url="/include/header"></c:import>
-<form method="post" action="member" id="signForm" onsubmit="return form_check()">
+<form method="post" action="member" id="signForm" onsubmit="return form_check()"><!-- form전송 전 입력데이터 유효성 검사 onsubmit -->
 <div class="container">
 <h1 id = "a">Sign Up</h1>
 <div class="middle">

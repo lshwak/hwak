@@ -18,23 +18,25 @@
 <title>DanceMoa Login</title>
 </head>
 <body>
-<form action="/login" method="post" name="form1">
+
 <c:import url="/include/header"></c:import>
 <div class="container">
   <h1 id="a">Login</h1>
   
 	  	<div class="middle">
 	  		<div id="log_box">
-			
-			<input type="text" name="logid" placeholder="ID" pattern="^([a-z0-9_]){3,12}$"><br>
-			<input type="password" name="logpassword" placeholder="PW" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_-+=[]{}~?:;`|/]).{8,12}$"><br>
+			<form id="form1">
+				<input type="text" name="logid" placeholder="ID" pattern="^([a-z0-9_]){3,12}$"><br>
+				<input type="password" name="logpassword" placeholder="PW" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_-+=[]{}~?:;`|/]).{8,12}$"><br>
+			</form>
 			<input type="submit" value="로그인" onclick="btn_click('login')">
 			<input type="submit" value="회원가입" onclick="btn_click('member')">
+			<!-- submit을 form 밖으로 꺼내줘서 자바스크립트로 전송. form안에 submit은 하나여야해. -->
 		
 			</div>
 		</div>
 </div>
-</form>
+
 </body>
 <c:import url="/include/footer"></c:import>
 
