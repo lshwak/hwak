@@ -45,7 +45,7 @@
 				success:function(data) {
 					// console.log(data);
 					// alert(data);
-					alert(checkImageType);
+					// alert(checkImageType);
 					
 					var str="";
 					if(checkImageType(data)){
@@ -54,7 +54,7 @@
 							+"<img src='displayFile?fileName="+getImageLink(data)+"'/>"
 							+"<small data-src='"+getImageLink(data)+"'>X</small>"+"</div>";
 					} else {
-						alert("ccc");
+						// alert("ccc");
 						str="<div><a href='displayFile?fileName="+data+"'>"
 							+getOriginalName(data)+"</a></div>";
 					}
@@ -66,7 +66,7 @@
 		 
 		// small 태그를 click했을 때.
 		$("#uploadedList").on("click","small",function(event){
-			alert("delete?");
+			// alert("delete?");
 			var that = $(this);
 			$.ajax({
 				url:"deleteFile",
@@ -84,7 +84,7 @@
 	
 		
 		$("#aregistForm").submit(function(event){
-			alert("make");    
+			// alert("make");    
 			event.preventDefault();
 			var that = $(this);
 			var str = "";
@@ -92,7 +92,7 @@
 				str += "<input type='hidden' name='aimage["+index+"]' value='"+$(this).attr('data-src')+"'>";
 			});
 			that.append(str);
-			alert(str);
+			alert("게시물을 등록합니다.");
 			that.get(0).submit();
 			
 			

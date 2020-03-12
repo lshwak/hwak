@@ -126,7 +126,7 @@
 			sty+=$(this).val()+", ";
 			//sty.push($(this).val());
 		});
-		//alert(sty);
+		alert("게시물을 등록합니다.");
 		
 	});
 	

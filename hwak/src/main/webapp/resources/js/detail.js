@@ -6,6 +6,7 @@ $(document).ready(function(){
 	})
 	//삭제
 	$("#del").click(function(){
+		alert("게시물을 삭제합니다.");
 		$("#detailForm").attr("action", "delete");
 	})
 	

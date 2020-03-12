@@ -43,7 +43,7 @@
 				success:function(data) {
 					// console.log(data);
 					// alert(data);
-					alert(checkImageType);
+					//alert(checkImageType);
 					
 					var str="";
 					if(checkImageType(data)){
@@ -52,7 +52,7 @@
 							+"<img src='displayFile?fileName="+getImageLink(data)+"'/>"
 							+"<small data-src='"+getImageLink(data)+"'>X</small>"+"</div>";
 					} else {
-						alert("ccc");
+						// alert("ccc");
 						str="<div><a href='displayFile?fileName="+data+"'>"
 							+getOriginalName(data)+"</a></div>";
 					}
@@ -71,7 +71,7 @@
 				dataType:"text",
 				success:function(result){
 					if(result=="deleted"){
-						alert("delete");
+						// alert("delete");
 						that.parent("div").remove();
 					}
 				}
@@ -82,7 +82,7 @@
 		
 		// small 태그를 click했을 때.
 		$("#uploadedList").on("click","small",function(event){
-			alert("delete?");
+			// alert("delete?");
 			var that = $(this);
 			$.ajax({
 				url:"deleteFile",
@@ -100,14 +100,14 @@
 	
 		
 		$("#magamodiForm").submit(function(event){
-			alert("modify");    
+			// alert("modify");    
 			event.preventDefault();
 			var that = $(this);
 			
 			var str = "";
 			
 			var imgal = $(".imgdelete a").length;
-			alert("기존이미지 갯수="+imgal);
+			// alert("기존이미지 갯수="+imgal);
 			$(".imgdelete a").each(function(index){
 				str += "<input type='hidden' name='mimage["+index+"]' value='"+$(this).attr('data-src')+"'>";
 			});
@@ -119,7 +119,7 @@
 			
 			
 			that.append(str);
-			alert(str);
+			alert("게시물을 수정합니다.");
 			that.get(0).submit();
 			
 			
