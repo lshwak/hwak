@@ -39,7 +39,7 @@
 	  		</td>
 	  	</tr>
 	  	<tr class="line">
-	  		<td>내용</td><td><textarea rows="10" cols="70" name="mcontent"></textarea></td>
+	  		<td>내용</td><td><textarea rows="50" cols="120" name="mcontent"></textarea></td>
 	  	</tr>
 	  	<tr class="linebottom">
 	  		<td colspan="2" align="center"><input type="submit" id="magasubmit" onclick="magamaking()" value="등록"></td>

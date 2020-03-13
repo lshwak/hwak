@@ -47,7 +47,7 @@
 	  		</td>
 	  	</tr>
 	  	<tr class="line">
-	  		<td>내용</td><td><textarea rows="10" cols="70" name="mcontent">${magamodify.mcontent}</textarea></td>
+	  		<td>내용</td><td><textarea rows="50" cols="120" name="mcontent">${magamodify.mcontent}</textarea></td>
 	  	</tr>
 	  	<tr class="linebottom">
 	  		<td colspan="2" align="center"><input type="submit" id="modisubmit" onclick="magamodifing()" value="수정"></td>

@@ -30,28 +30,29 @@
       
       <div class="carousel-inner" role="listbox">
         <!-- Slide One - Set the background image for this slide in the line below -->
-        <div class="carousel-item active" style="background-image: url('displayFile?fileName=${eventSelect.fn}')">
+        <div class="carousel-item active" style="background-image: url('displayFile?fileName=${eventSelect.fn}')" onclick="slideimg('detail?eno=${eventSelect.eno}')">
+        
           <div class="carousel-caption d-none d-md-block">
             <h3>${eventSelect.esubject}</h3>
             <p>일시: ${eventSelect.edate} | 타입: ${eventSelect.etype} | Views: ${eventSelect.ecnt}</p>
           </div>
         </div>
-        
-        
         <!-- Slide Two - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('displayFile?fileName=${magaSelect.fn}')">
+        <div class="carousel-item" style="background-image: url('displayFile?fileName=${magaSelect.fn}')" onclick="slideimg('magadetail?mno=${magaSelect.mno}')">
           <div class="carousel-caption d-none d-md-block">
             <h3>${magaSelect.mtitle}</h3>
             <p>This is a description for the second slide.</p>
           </div>
         </div>
+        
         <!-- Slide Three - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('displayFile?fileName=${acaSelect.fn}')">
+        <div class="carousel-item" style="background-image: url('displayFile?fileName=${acaSelect.fn}')"onclick="slideimg('acadetail?ano=${acaSelect.ano}')">
           <div class="carousel-caption d-none d-md-block">
             <h3>${acaSelect.aname}</h3>
             <p>전문분야 : ${acaSelect.atype} | 작성일 : ${acaSelect.aregdate} | Views : ${acaSelect.acnt} | ${acaSelect.arcm} | 지역 : ${acaSelect.aarea} | 대표 : ${acaSelect.amaster}</p>
           </div>
         </div>
+        
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

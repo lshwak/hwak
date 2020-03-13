@@ -45,7 +45,7 @@
 	  		</td>
 	  	</tr>
 	  	<tr class="line">
-	  		<td>소개내용</td><td><textarea rows="10" cols="70" name="acontent"></textarea></td>
+	  		<td>소개내용</td><td><textarea rows="50" cols="120" name="acontent"></textarea></td>
 	  	</tr>
 	  	<tr class="linebottom">
 	  		<td colspan="2" align="center"><input type="submit" id="acasubmit" onclick="acamaking()" value="등록"></td>

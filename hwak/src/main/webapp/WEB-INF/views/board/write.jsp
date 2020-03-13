@@ -80,7 +80,7 @@
 	  		<td>지도 (위도/경도)</td><td></td>
 	  	</tr>
 	  	<tr class="line">
-	  		<td>내용</td><td><textarea rows="10" cols="70" name="econtent"></textarea></td>
+	  		<td>내용</td><td><textarea rows="50" cols="120" name="econtent"></textarea></td>
 	  	</tr>
 	  	<tr class="linebottom">
 	  		<td colspan="2" align="center"><input type="submit" id="make" value="등록"></td>

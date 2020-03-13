@@ -61,7 +61,7 @@
 	  	</tr>
 	  	<tr class="line">
 	  		
-	  		<td><textarea rows="10" cols="70">${detail.acontent}</textarea></td>
+	  		<td><textarea rows="50" cols="120">${detail.acontent}</textarea></td>
 	  	</tr>
 	  	<tr class="linebottom">
 	  		

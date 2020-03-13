@@ -94,7 +94,7 @@
 	  		<td>지도 (위도/경도)</td><td></td>
 	  	</tr>
 	  	<tr class="line">
-	  		<td>내용</td><td><textarea rows="10" cols="70" readOnly>${detail.econtent}</textarea></td>
+	  		<td>내용</td><td><textarea rows="50" cols="120" readOnly>${detail.econtent}</textarea></td>
 	  	</tr>
 	  	<tr class="linebottom">
 	  		<td colspan="2" align="center"><input type="submit" onclick="making()" value="참가신청"></td>

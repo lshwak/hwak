@@ -10,4 +10,10 @@ $(document).ready(function(){
 			
 		} 
 	}); 
+	
 });
+
+
+function slideimg(data){
+	location.href=data;
+}
