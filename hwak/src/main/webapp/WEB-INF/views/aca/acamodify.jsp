@@ -22,7 +22,7 @@
 <c:import url="/include/header"></c:import>
 <form action="acamodify" id="acamodiForm" method="post" enctype="multipart/form-data">
   <div class="container">
-  <h1 id = "a">잡지 수정</h1>
+  <h1 id = "a">학원 수정</h1>
   <div class="middle">
   <input type="hidden" name="ano" value="${acamodify.ano}">
 	  <table>
