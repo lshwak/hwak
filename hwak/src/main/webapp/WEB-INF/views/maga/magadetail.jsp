@@ -45,7 +45,7 @@
 <table>
 
 		<tr class="linetop">
-	  		<td>${detail.mno}</td>
+	  		<td>${detail.msubtitle}</td>
 	  	</tr>
 	  	<tr class="line">
 	  		

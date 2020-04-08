@@ -77,9 +77,6 @@
 			</td>
 	  	</tr>
 	  	<tr class="line">
-	  		<td>지도 (위도/경도)</td><td></td>
-	  	</tr>
-	  	<tr class="line">
 	  		<td>내용</td><td><textarea rows="50" cols="120" name="econtent"></textarea></td>
 	  	</tr>
 	  	<tr class="linebottom">

@@ -59,6 +59,8 @@
 		</td>
 		<td class="textcontent">
 			<h4><a href="magadetail?mno=${magazines.mno}">${magazines.mtitle}</a></h4><br>
+			${magazines.msubtitle}
+			<br>
 			${magazines.mwriter} | View : ${magazines.mcnt} | ${magazines.mregdate}<br>
 			${magazines.mcontent}
 		</td>
