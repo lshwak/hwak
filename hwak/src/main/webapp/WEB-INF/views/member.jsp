@@ -50,7 +50,7 @@
                              <input type="text" numberOnly size="10px" id="pnum2">-
                              <input type="text" numberOnly size="10px" id="pnum3">
                              <br><span id="phoneRes"></span>
-                             <input type="text" id="pnum" name=phone>
+                             <input type="hidden" id="pnum" name=phone>
                    </td>
           </tr>
           
@@ -64,7 +64,7 @@
                                       <option value="gmail.com">gmail.com</option>
                              </select>
                              <input type="button" value="인증번호 발송" id="randomNum">
-                             <input type="text" id="summail" name="email"><br>
+                             <input type="hidden" id="summail" name="email"><br>
                             <!--  <span id="checkEmailnum"></span> -->
                              
                    </td>
